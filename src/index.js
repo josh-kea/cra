@@ -6,13 +6,17 @@ const Footer = () => {
 };
 
 function App(){
+    const data = {
+        age:22,
+        skills:["a", "b"]
+    }
     return (
         <div id="App">
             <Header />
             <Header />
             <Header />
-            <Person name="JOSHUA!!!!!!"></Person>
-            <Person name="Nek Minnit"/>
+            <Person mydata={data} name="JOSHUA!!!!!!" />
+            <Person mydata={data} name="Nek Minnit"/>
             <Footer />
         </div>
     );
@@ -30,9 +34,19 @@ function Person(props){
     return (
         <article>
             <h1>{props.name}</h1>
-            <p>Hi Mother!</p>
+            <p>I'm {props.mydata.age}</p>
+            <Skills skills = {props.mydata.skills}/>
         </article>
+        
     );
+}
+
+function Skills(props){
+    return (
+        <ul>
+            <li>Skills here</li>
+        </ul>
+    )
 }
 
 
