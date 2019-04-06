@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 
 function App() {
+    // 1. This is the data that we are going to map.
   const data = [
     {
       name: "Joshua",
@@ -38,6 +39,7 @@ function App() {
   );
 }
 
+// We are creating the Teacher component in which we will map the arrrays contents to.
 function Teacher(props) {
   return (
     <article>
@@ -49,7 +51,7 @@ function Teacher(props) {
         {props.hobbies[0]} {props.hobbies[1]}
       </h3>
     </article>
-  );
+  );    
 }
 
 //JSX, we are mixing javascript and HTML --!!
