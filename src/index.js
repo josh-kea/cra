@@ -1,55 +1,56 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-const Footer = () => {
-    return <footer>&copy; 2019</footer>
-};
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
 
-function App(){
-    const data = {
-        age:22,
-        skills:["a", "b"]
+function App() {
+  const data = [
+    {
+      name: "Joshua",
+      hobbies: ["js", "beer"],
+      email: "joshkap2015@gmail.com"
+    },
+    {
+      name: "Peter",
+      hobbies: ["js", "cats"],
+      email: "petl@gmail.com"
+    },
+    {
+      name: "Ida",
+      hobbies: ["sprints", "dogs"],
+      email: "idw@gmail.com"
     }
+  ];
+  const teachers = data.map(teacher => {
     return (
-        <div id="App">
-            <Header />
-            <Header />
-            <Header />
-            <Person mydata={data} name="JOSHUA!!!!!!" />
-            <Person mydata={data} name="Nek Minnit"/>
-            <Footer />
-        </div>
+      <Teacher
+        name={teacher.name}
+        hobbies={teacher.hobbies}
+        email={teacher.email}
+      />
     );
+  });
+  return (
+    <div id="App">
+      <header>Header</header>
+      {teachers}
+      <footer>Footer</footer>
+    </div>
+  );
 }
 
-function Header(){
-        return (
-            <header>
-                <h1>This is a header</h1>
-            </header>
-        )
+function Teacher(props) {
+  return (
+    <article>
+      <header>
+        <h1>{props.name}</h1>
+        <p>{props.email}</p>
+      </header>
+      <h3>
+        {props.hobbies[0]} {props.hobbies[1]}
+      </h3>
+    </article>
+  );
 }
-
-function Person(props){
-    return (
-        <article>
-            <h1>{props.name}</h1>
-            <p>I'm {props.mydata.age}</p>
-            <Skills skills = {props.mydata.skills}/>
-        </article>
-        
-    );
-}
-
-function Skills(props){
-    return (
-        <ul>
-            <li>Skills here</li>
-        </ul>
-    )
-}
-
 
 //JSX, we are mixing javascript and HTML --!!
-ReactDOM.render(<App />, document.getElementById('root'));
-
+ReactDOM.render(<App />, document.getElementById("root"));
